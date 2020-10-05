@@ -14,3 +14,4 @@ services:
       - NET_ADMIN
     tmpfs:
       - /tmp
+    depends_on: server

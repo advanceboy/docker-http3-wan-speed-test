@@ -1,0 +1,16 @@
+# Investigate the impact on speed of latency and packet loss using http/3 enabled servers and clients
+version: '3'
+services:
+  server:
+    build: server
+    cap_add:
+      - NET_ADMIN
+    tmpfs:
+      - /usr/local/nginx/html/tmp
+  client:
+    build: client
+    tty: true
+    cap_add:
+      - NET_ADMIN
+    tmpfs:
+      - /tmp

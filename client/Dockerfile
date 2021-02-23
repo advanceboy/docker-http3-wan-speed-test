@@ -12,6 +12,9 @@ COPY --from=curlimage /lib /lib/
 COPY --from=curlimage /etc /etc/
 COPY --from=curlimage /usr /usr/
 
+# add startup code
+COPY docker-entrypoint.sh /tmp/
+
 #start
 ENTRYPOINT [ "/bin/ash" ]
-CMD []
+CMD [ "/tmp/docker-entrypoint.sh" ]

@@ -7,11 +7,15 @@ services:
       - NET_ADMIN
     tmpfs:
       - /usr/local/nginx/html/tmp
+    environment:
+      - DATA_SIZE
   client:
     build: client
     tty: true
     cap_add:
       - NET_ADMIN
-    tmpfs:
-      - /tmp
-    depends_on: server
+    depends_on:
+      - server
+    environment:
+      - NUMBER_OF_TESTS
+      - MAX_DOWNLOAD_TIME
